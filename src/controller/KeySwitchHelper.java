@@ -25,7 +25,7 @@ public class KeySwitchHelper {
 	}
 	public void deleteKey(KeySwitch toDelete) {
 		EntityManager em = emfactory.createEntityManager(); em.getTransaction().begin();
-		TypedQuery<KeySwitch> typedQuery = em.createQuery("select key from KeySwitch key where key.store = :selectedStore and key.item = :selectedItem", KeySwitch.class);
+		TypedQuery<KeySwitch> typedQuery = em.createQuery("select li from KeySwitch li where li.color = :selectedColor and li.operatingForce = :selectedOperatingForce and li.tactile = :selectedTactile", KeySwitch.class);
 		//Substitute parameter with actual data from the toDelete item 
 		typedQuery.setParameter("selectedColor", toDelete.getColor()); 
 		typedQuery.setParameter("selectedOperatingForce", toDelete.getOperatingForce());
@@ -59,25 +59,30 @@ public class KeySwitchHelper {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager(); 
 		em.getTransaction().begin();
-		TypedQuery<KeySwitch> typedQuery = em.createQuery("select li from KeySwitch li where li.item = :selectedStore", KeySwitch.class); 
-		typedQuery.setParameter("selectedStore", color);
+		TypedQuery<KeySwitch> typedQuery = em.createQuery("select c from KeySwitch c where c.color = :selectedColor", KeySwitch.class); 
+		typedQuery.setParameter("selectedColor", color);
 		List<KeySwitch> foundItems = typedQuery.getResultList(); em.close();
 		return foundItems;
 	}
 	public List<KeySwitch> searchForOperatingForce(int operatingForce) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager(); em.getTransaction().begin();
-		TypedQuery<KeySwitch> typedQuery = em.createQuery("select li from KeySwitch li where li.item = :selectedItem", KeySwitch.class); 
-		typedQuery.setParameter("selectedItem", operatingForce);
+		TypedQuery<KeySwitch> typedQuery = em.createQuery("select li from KeySwitch li where li.operatingForce = :selectedOperatingForce", KeySwitch.class); 
+		typedQuery.setParameter("selectedOperatingForce", operatingForce);
 		List<KeySwitch> foundItems = typedQuery.getResultList(); em.close();
 		return foundItems;
 	}
 	public List<KeySwitch> searchForTactile(boolean tactile) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager(); em.getTransaction().begin();
-		TypedQuery<KeySwitch> typedQuery = em.createQuery("select li from KeySwitch li where li.item = :selectedItem", KeySwitch.class); 
-		typedQuery.setParameter("selectedItem", tactile);
+		TypedQuery<KeySwitch> typedQuery = em.createQuery("select li from KeySwitch li where li.tactile = :selectedTactile", KeySwitch.class); 
+		typedQuery.setParameter("selectedTactile", tactile);
 		List<KeySwitch> foundItems = typedQuery.getResultList(); em.close();
 		return foundItems;
 	}
+	
+	public void cleanUp() {
+		emfactory.close(); 
+	}
+	
 }

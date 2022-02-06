@@ -8,7 +8,7 @@ public class KeySwitch {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID")
-	private String id;
+	private int id;
 	@Column(name="COLOR")
 	private String color;
 	@Column(name="OPERATINGFORCE")
@@ -28,10 +28,10 @@ public class KeySwitch {
 		this.tactile = tactile;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getColor() {
