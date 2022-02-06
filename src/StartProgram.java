@@ -16,9 +16,9 @@ public class StartProgram {
 			String color = in.nextLine();
 			System.out.print("Enter the operating force: ");
 			int operatingForce = in.nextInt();
-			System.out.print("Is the key clicky?: ");
-			boolean clicky = in.nextBoolean();
-			KeySwitch toAdd = new KeySwitch(color, operatingForce, clicky);
+			System.out.print("Is the key tactile?: ");
+			boolean tactile = in.nextBoolean();
+			KeySwitch toAdd = new KeySwitch(color, operatingForce, tactile);
 			ksh.insertKey(toAdd);
 		}
 
@@ -28,9 +28,9 @@ public class StartProgram {
 			String color = in.nextLine();
 			System.out.print("Enter the operating force: ");
 			int operatingForce = in.nextInt();
-			System.out.print("Is the key clicky?: ");
-			boolean clicky = in.nextBoolean();
-			KeySwitch toDelete = new KeySwitch(color, operatingForce, clicky); 
+			System.out.print("Is the key tactile?: ");
+			boolean tactile = in.nextBoolean();
+			KeySwitch toDelete = new KeySwitch(color, operatingForce, tactile); 
 			ksh.deleteKey(toDelete);
 		}
 
@@ -105,12 +105,12 @@ public class StartProgram {
 
 		public static void runMenu() {
 			boolean goAgain = true;
-			System.out.println("--- Welcome to our awesome shopping list! ---");
+			System.out.println("--- Key Depot ---");
 			while (goAgain) {
-				System.out.println("*  Select an item:");
-				System.out.println("*  1 -- Add an item");
-				System.out.println("*  2 -- Edit an item");
-				System.out.println("*  3 -- Delete an item");
+				System.out.println("*  Your choices:");
+				System.out.println("*  1 -- Add a key");
+				System.out.println("*  2 -- Edit a key");
+				System.out.println("*  3 -- Delete a key");
 				System.out.println("*  4 -- View the list");
 				System.out.println("*  5 -- Exit the awesome program");
 				System.out.print("*  Your selection: ");
@@ -126,8 +126,8 @@ public class StartProgram {
 				} else if (selection == 4) {
 					viewTheList();
 				} else {
-					//ksh.cleanUp();
-					System.out.println("   Goodbye!   ");
+					ksh.cleanUp();
+					System.out.println("   Closing   ");
 					goAgain = false;
 				}
 
