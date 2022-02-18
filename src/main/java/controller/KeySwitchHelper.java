@@ -1,4 +1,4 @@
-package controller;
+package main.java.controller;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import model.KeySwitch;
+import main.java.model.KeySwitch;
 
 public class KeySwitchHelper {
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("JavaIIWeek3Assignment");
