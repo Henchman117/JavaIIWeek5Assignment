@@ -2,8 +2,8 @@
 import java.util.List;
 import java.util.Scanner;
 
-import controller.KeySwitchHelper;
-import model.KeySwitch;
+import main.java.controller.KeySwitchHelper;
+import main.java.model.KeySwitch;
 
 public class StartProgram {
 
