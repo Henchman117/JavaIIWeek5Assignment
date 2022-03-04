@@ -3,11 +3,14 @@
 	<persistence-unit name="JavaIIWeek3Assignment" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>main.java.model.KeySwitch</class>
+		<class>main.java.model.Creator</class>
+		<class>main.java.model.ListDetails</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/keydepot"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.password" value="Database240Sx"/>
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
 		</properties>
 	</persistence-unit>
 </persistence>
